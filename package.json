@@ -1,5 +1,5 @@
 {
-  "name": "@bitrix/cli",
+  "name": "@mrdeff/cli",
   "version": "3.0.1",
   "description": "Bitrix CLI tools",
   "main": "./src/cli/bitrix.js",

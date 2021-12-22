@@ -14,7 +14,7 @@ import argv from '../process/argv';
 
 /*
 	eslint
- 	"no-restricted-syntax": "off",
+ 	"no-restricted-syntax": "off",progressbar.start('Run watcher!');
  	"no-await-in-loop": "off"
 */
 

@@ -25,6 +25,7 @@ export default function isAllowed(fileName) {
 		case '.jsx':
 		case '.css':
 		case '.scss':
+		case '.vue':
 			return true;
 		default:
 			return false;

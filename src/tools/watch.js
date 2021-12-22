@@ -1,5 +1,6 @@
 import slash from 'slash';
-import path from 'path';
+import Logger from '@bitrix/logger';
+import path, {basename} from 'path';
 import EventEmitter from 'events';
 import chokidar from 'chokidar';
 import Directory from '../entities/directory';
@@ -37,13 +38,15 @@ export default function watch(directories) {
 		.on('ready', () => emitter.emit('ready', watcher))
 		.on('change', (file) => {
 			if (repository.isLocked(file)) {
+				Logger.log('Build lock');
 				return;
 			}
+			Logger.log(`Build module ->>> ${file}`);
 
-			if (!isAllowedChanges(preparedDirectories, file)) {
-				return;
-			}
-
+			// if (!isAllowedChanges(preparedDirectories, file)) {
+			// 	return;
+			// }
+			Logger.log('Build module 2');
 			const changedConfig = preparedDirectories
 				.reduce((acc, dir) => acc.concat((new Directory(dir)).getConfigs()), [])
 				.filter(config => path.resolve(file).includes(config.context))
@@ -53,10 +56,12 @@ export default function watch(directories) {
 					}
 					return config;
 				}, null);
-
-			if (changedConfig) {
-				emitter.emit('change', changedConfig);
-			}
+			Logger.log('Build module 3');
+			Logger.log(`Build module ${changedConfig}`);
+			//
+			// if (changedConfig) {
+			emitter.emit('change', []);
+			// }
 		});
 
 	process.nextTick(() => {

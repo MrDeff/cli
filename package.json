@@ -1,6 +1,6 @@
 {
-  "name": "@mrdeff/cli",
-  "version": "3.0.1",
+  "name": "@mrdeff/bitrixcli",
+  "version": "3.0.8",
   "description": "Bitrix CLI tools",
   "main": "./src/cli/bitrix.js",
   "engines": {
@@ -15,17 +15,17 @@
     "prod": "npm run test && npm run build"
   },
   "bin": {
-    "bitrix": "./bin/bitrix"
+    "bitrix": "bin/bitrix"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bitrix-tools/cli.git"
+    "url": "git+https://github.com/MrDeff/cli.git"
   },
   "homepage": "https://github.com/bitrix-tools/cli#readme",
   "bugs": {
     "url": "https://github.com/bitrix-tools/cli/issues"
   },
-  "author": "Bitrix",
+  "author": "Bitrix,mrdeff",
   "license": "MIT",
   "dependencies": {
     "@babel/plugin-external-helpers": "^7.10.4",
@@ -79,7 +79,8 @@
     "rollup-plugin-simple-babel": "^1.0.6",
     "sinon": "^7.5.0",
     "slash": "^2.0.0",
-    "update-notifier": "^2.5.0"
+    "update-notifier": "^2.5.0",
+    "weak": "^1.0.1"
   },
   "optionalDependencies": {
     "weak": "^1.0.1"

@@ -38,15 +38,14 @@ export default function watch(directories) {
 		.on('ready', () => emitter.emit('ready', watcher))
 		.on('change', (file) => {
 			if (repository.isLocked(file)) {
-				Logger.log('Build lock');
 				return;
 			}
-			Logger.log(`Build module ->>> ${file}`);
+				Logger.log(`Changed file: ${file}`);
 
-			// if (!isAllowedChanges(preparedDirectories, file)) {
-			// 	return;
-			// }
-			Logger.log('Build module 2');
+			if (!isAllowedChanges(preparedDirectories, file)) {
+				return;
+			}
+
 			const changedConfig = preparedDirectories
 				.reduce((acc, dir) => acc.concat((new Directory(dir)).getConfigs()), [])
 				.filter(config => path.resolve(file).includes(config.context))
@@ -56,12 +55,10 @@ export default function watch(directories) {
 					}
 					return config;
 				}, null);
-			Logger.log('Build module 3');
-			Logger.log(`Build module ${changedConfig}`);
-			//
-			// if (changedConfig) {
-			emitter.emit('change', []);
-			// }
+
+			if (changedConfig) {
+				emitter.emit('change', changedConfig);
+			}
 		});
 
 	process.nextTick(() => {

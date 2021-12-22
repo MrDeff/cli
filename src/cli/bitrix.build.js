@@ -20,7 +20,7 @@ async function bitrixBuild({path, modules = []} = params) {
 
 			const emitter = watch(directories)
 				.on('start', (watcher) => {
-					progressbar.start('Run watcher!');
+					progressbar.start('Run watcher');
 					resolve({watcher, emitter});
 				})
 				.on('ready', () => {

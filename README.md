@@ -21,7 +21,7 @@
 2. `bitrix test` для запуска Mocha тестов
 3. `bitrix create` для быстрого создания «экстеншна»
 
-> В&nbsp;первую очередь, `@bitrix/cli` предназначен для работы «экстеншнами», 
+> В&nbsp;первую очередь, `@mrdeff/bitrixcli` предназначен для работы «экстеншнами», 
 шаблонами сайта и&nbsp;шаблонами компонентов. 
 
 
@@ -29,12 +29,12 @@
 
 NPM
 ```bash
-$ npm install -g @bitrix/cli
+$ npm install -g @mrdeff/bitrixcli
 ```
 
 YARN
 ```bash
-$ yarn global add @bitrix/cli
+$ yarn global add @mrdeff/bitrixcli
 ```
 
 <h2 id="config">Конфигурация</h2>
